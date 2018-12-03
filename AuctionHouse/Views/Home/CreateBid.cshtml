@@ -1,0 +1,48 @@
+﻿@model AuctionHouse.Models.CreateBid
+
+@{
+    ViewData["Title"] = "CreateBid";
+}
+
+<h2>CreateBid</h2>
+
+<h4>CreateBid</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="CreateBid">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="ItemNumber" class="control-label"></label>
+                <input asp-for="ItemNumber" class="form-control" />
+                <span asp-validation-for="ItemNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ItemPrice" class="control-label"></label>
+                <input asp-for="ItemPrice" class="form-control" />
+                <span asp-validation-for="ItemPrice" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CustomName" class="control-label"></label>
+                <input asp-for="CustomName" class="form-control" />
+                <span asp-validation-for="CustomName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CustomPhone" class="control-label"></label>
+                <input asp-for="CustomPhone" class="form-control" />
+                <span asp-validation-for="CustomPhone" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -16,7 +16,17 @@ namespace AuctionHouse.Controllers {
 
             return View(auctionItems);
         }
+        
+        [HttpGet("{id}")]
+        public IActionResult Bids(int id) {
+            return View("CreateBid");
+        }
 
+        [HttpPost("{id}/bid")]
+        public IActionResult CreateBid(int id, CreateBid bid) {
+
+            return View();
+        }
         public IActionResult About() {
             ViewData["Message"] = "Your application description page.";
 
