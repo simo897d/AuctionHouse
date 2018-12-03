@@ -1,4 +1,4 @@
-﻿@model AuctionHouse.Models.CreateBid
+﻿@model AuctionHouse.Models.AuctionItems
 
 @{
     ViewData["Title"] = "CreateBid";
@@ -6,43 +6,55 @@
 
 <h2>CreateBid</h2>
 
-<h4>CreateBid</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="CreateBid">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="ItemNumber" class="control-label"></label>
-                <input asp-for="ItemNumber" class="form-control" />
-                <span asp-validation-for="ItemNumber" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ItemPrice" class="control-label"></label>
-                <input asp-for="ItemPrice" class="form-control" />
-                <span asp-validation-for="ItemPrice" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="CustomName" class="control-label"></label>
-                <input asp-for="CustomName" class="form-control" />
-                <span asp-validation-for="CustomName" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="CustomPhone" class="control-label"></label>
-                <input asp-for="CustomPhone" class="form-control" />
-                <span asp-validation-for="CustomPhone" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-default" />
-            </div>
-        </form>
-    </div>
-</div>
-
 <div>
+    <h4>AuctionItems</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ItemNumber)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ItemNumber)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ItemDescription)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ItemDescription)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.RatingPrice)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.RatingPrice)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.BidPrice)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.BidPrice)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.BidCustomName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.BidCustomName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.BidCustomPhone)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.BidCustomPhone)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.BidTimeStamp)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.BidTimeStamp)
+        </dd>
+    </dl>
+</div>
+<div>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
     <a asp-action="Index">Back to List</a>
 </div>
-
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}

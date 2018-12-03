@@ -18,14 +18,19 @@ namespace AuctionHouse.Controllers {
         }
         
         [HttpGet("{id}")]
-        public IActionResult Bids(int id) {
+        public IActionResult Bids(int id, [FromServices] AuctionApiProxy auctionApi) {
+            IEnumerable<AuctionItems> auctionItems = auctionApi.GetItemsAsync().Result;
+
+            var 
             return View("CreateBid");
         }
 
         [HttpPost("{id}/bid")]
-        public IActionResult CreateBid(int id, CreateBid bid) {
+        public IActionResult CreateBid(int id, CreateBid bid, [FromServices] AuctionApiProxy auctionApi) {
+            IEnumerable<AuctionItems> auctionItems = auctionApi.GetItemsAsync().Result;
+            var statuscode = auctionApi.GetCreateBidsAsync(id, bid);
 
-            return View();
+            return View(statuscode);
         }
         public IActionResult About() {
             ViewData["Message"] = "Your application description page.";
