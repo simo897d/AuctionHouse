@@ -11,8 +11,10 @@ namespace AuctionHouse.Controllers {
     public class HomeController : Controller {
         
         public IActionResult Index([FromServices] AuctionApiProxy auctionApi) {
-               
-            return View(auctionApi.GetItemsAsync());
+           IEnumerable<AuctionItems>  auctionItems = auctionApi.GetItemsAsync().Result;
+
+
+            return View(auctionItems);
         }
 
         public IActionResult About() {
