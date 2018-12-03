@@ -29,5 +29,14 @@ namespace AuctionHouse.Services {
             var result = client.PostAsJsonAsync(url, content).Result;
             return result.StatusCode.ToString();
         }
+
+        public async Task<AuctionItems> GetOneItem(int id) {
+            var url = $"{baseUrl}/auctionitems/{id}";
+
+            var client = new HttpClient();
+
+            string Json = await client.GetStringAsync(url);
+            return JsonConvert.DeserializeObject<AuctionItems>(Json);
+                }
     }
 }

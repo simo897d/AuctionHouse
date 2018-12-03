@@ -16,13 +16,12 @@ namespace AuctionHouse.Controllers {
 
             return View(auctionItems);
         }
-        
-        [HttpGet("{id}")]
+        [HttpGet("CreateBid/{id}")]
         public IActionResult Bids(int id, [FromServices] AuctionApiProxy auctionApi) {
-            IEnumerable<AuctionItems> auctionItems = auctionApi.GetItemsAsync().Result;
+            var auctionItem = auctionApi.GetOneItem(id).Result;
 
-            var 
-            return View("CreateBid");
+            
+            return View("CreateBid", auctionItem);
         }
 
         [HttpPost("{id}/bid")]
